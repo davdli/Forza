@@ -7,9 +7,9 @@ const Details = () => {
   const classes = useStyles();
   return (
     <Card className={classes.income}>
-      <CardHeader title="Income" />
+      <CardHeader title="Test" />
       <CardContent>
-        <Typography variant="h5">$50</Typography>
+        <Typography variant="h5">100</Typography>
         {/* <Doughnut data="Data" /> */}
       </CardContent>
     </Card>
