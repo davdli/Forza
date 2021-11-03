@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide } from '@material-ui/core'
 import { Delete, FitnessCenterOutlined } from '@material-ui/icons'
 import useStyles from './styles'
+import { StrengthProgressContext } from '../../../context/context'
 
 const List = () => {
   const classes = useStyles()
+  const { removeInput } = useContext(StrengthProgressContext)
   const inputs = [
     {id: 1, category: "Start", exercise: 'Bench', weight: 135, date: "Tues Nov 2"},
     {id: 2, category: "Start", exercise: 'Squat', weight: 225, date: "Wed Nov 3"},
