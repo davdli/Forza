@@ -50,7 +50,7 @@ const Form = () => {
         <FormControl fullWidth>
           <InputLabel>Exercise</InputLabel>
           <Select value={formData.exercise} onChange={(event) => setFormData({...formData, exercise: event.target.value})}>
-            {selectedExercises.map((category) => <MenuItem key={category.exercise} value={category.exercise}>{category.exercise}</MenuItem>)}
+            {selectedExercises.map((exercise) => <MenuItem key={exercise.type} value={exercise.type}>{exercise.type}</MenuItem>)}
           </Select>
         </FormControl>
       </Grid>
