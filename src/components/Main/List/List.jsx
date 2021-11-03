@@ -6,12 +6,7 @@ import { StrengthProgressContext } from '../../../context/context';
 
 const List = () => {
   const classes = useStyles();
-  const { removeInput } = useContext(StrengthProgressContext);
-  const inputs = [
-    {id: 1, category: "Start", exercise: 'Bench', weight: 135, date: "Tues Nov 2"},
-    {id: 2, category: "Start", exercise: 'Squat', weight: 225, date: "Wed Nov 3"},
-    {id: 3, category: "Current", exercise: 'Bench', weight: 185, date: "Thurs Nov 4"}
-  ];
+  const { removeInput, inputs } = useContext(StrengthProgressContext);
   return (
     <MUIList dense={false} className={classes.list}>
       {inputs.map((input) => (

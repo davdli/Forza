@@ -22,13 +22,11 @@ export const Provider = ({ children }) => {
       payload: id
     })
   };
-
-  console.log(inputs);
-
   return (
     <StrengthProgressContext.Provider value={{
       addInput,
-      removeInput
+      removeInput,
+      inputs
     }}>
       {children}
     </StrengthProgressContext.Provider>
