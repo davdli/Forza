@@ -7,12 +7,14 @@ import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, M
 import useStyles from './styles';
 import { StrengthProgressContext } from '../../../context/context';
 import { v4 as uuidv4 } from 'uuid';
+import { currentCategories, startCategories } from '../../../constants/categories';
+import formatDate from '../../../utils/formatDate';
 
 const initialState = {
   category: '',
   exercise: '',
   weight: '',
-  date: new Date(),
+  date: formatDate(new Date()),
 };
 
 const Form = () => {
@@ -25,6 +27,8 @@ const Form = () => {
     addInput(input);
     setFormData(initialState);
   };
+
+  const selectedExercises = formData.category === 'Current' ? currentCategories : startCategories;
 
   return (
     <Grid container spacing={2}>
@@ -46,9 +50,7 @@ const Form = () => {
         <FormControl fullWidth>
           <InputLabel>Exercise</InputLabel>
           <Select value={formData.exercise} onChange={(event) => setFormData({...formData, exercise: event.target.value})}>
-            <MenuItem value="Bench">Bench</MenuItem>
-            <MenuItem value="Squat">Squat</MenuItem>
-            <MenuItem value="Deadlift">Deadlift</MenuItem>
+            {selectedExercises.map((category) => <MenuItem key={category.exercise} value={category.exercise}>{category.exercise}</MenuItem>)}
           </Select>
         </FormControl>
       </Grid>
@@ -56,7 +58,7 @@ const Form = () => {
         <TextField type="number" label="Weight" fullWidth value={formData.weight} onChange={(event) => setFormData({...formData, weight: event.target.value})} />
       </Grid>
       <Grid item xs={6}>
-        <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(event) => setFormData({...formData, date: event.target.value})}/>
+        <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(event) => setFormData({...formData, date: formatDate(event.target.value)})}/>
       </Grid>
       <Button
         className={classes.button}
