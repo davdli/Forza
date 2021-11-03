@@ -9,7 +9,7 @@ const Details = ({title}) => {
     <Card className={title === 'Current' ? classes.current : classes.start}>
       <CardHeader title={title} />
       <CardContent>
-        <Typography variant="h5">100</Typography>
+        <Typography variant="h5">100 lb</Typography>
         {/* <Doughnut data="Data" /> */}
       </CardContent>
     </Card>

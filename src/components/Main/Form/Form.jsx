@@ -13,7 +13,7 @@ const Form = () => {
       </Grid>
       <Grid item xs={6}>
         <FormControl fullWidth>
-          <InputLabel>Type</InputLabel>
+          <InputLabel>Category</InputLabel>
           <Select>
             <MenuItem value="Current">Current</MenuItem>
             <MenuItem value="Start">Start</MenuItem>
@@ -22,7 +22,7 @@ const Form = () => {
       </Grid>
       <Grid item xs={6}>
         <FormControl fullWidth>
-          <InputLabel>Category</InputLabel>
+          <InputLabel>Exercise</InputLabel>
           <Select>
             <MenuItem value="Bench">Bench</MenuItem>
             <MenuItem value="Squat">Squat</MenuItem>
@@ -31,7 +31,7 @@ const Form = () => {
         </FormControl>
       </Grid>
       <Grid item xs={6}>
-        <TextField type="number" label="Amount" fullWidth />
+        <TextField type="number" label="Weight" fullWidth />
       </Grid>
       <Grid item xs={6}>
         <TextField type="date" label="Date" fullWidth />
@@ -40,7 +40,9 @@ const Form = () => {
         className={classes.button}
         variant="outlined"
         color="primary"
-        fullWidth>Create</Button>
+        fullWidth>
+          Create
+      </Button>
     </Grid>
   )
 }
