@@ -1,3 +1,6 @@
+// create dispatch functions
+// passing dispatch functions into the context
+
 import React, { useReducer, createContext } from 'react';
 import contextReducer from './contextReducer';
 
@@ -6,10 +9,11 @@ export const StrengthProgressContext = createContext(initialState);
 
 export const Provider = ({ children }) => {
   const [inputs, dispatch] = useReducer(contextReducer, initialState);
+
   const addInput = (input) => {
     dispatch({
       type: 'ADD_INPUT',
-      padyload: input
+      payload: input
     })
   };
   const removeInput = (id) => {
@@ -18,10 +22,13 @@ export const Provider = ({ children }) => {
       payload: id
     })
   };
+
+  console.log(inputs);
+
   return (
     <StrengthProgressContext.Provider value={{
-      removeInput,
-      addInput
+      addInput,
+      removeInput
     }}>
       {children}
     </StrengthProgressContext.Provider>

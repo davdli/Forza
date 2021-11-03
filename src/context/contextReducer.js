@@ -1,3 +1,7 @@
+// create reducers
+// fired up from calling the addInput function on Form component
+// adds input to inputs
+
 const contextReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_INPUT':

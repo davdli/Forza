@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+// dispatch functions passed into context
+// accepting those to our component
+// calling those action creators to fire up context reducer
+
+import React, { useState, useContext } from 'react';
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import useStyles from './styles';
+import { StrengthProgressContext } from '../../../context/context';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
   category: '',
@@ -11,7 +17,15 @@ const initialState = {
 
 const Form = () => {
   const classes = useStyles();
-  const {formData, setFormData} = useState(initialState);
+  const [formData, setFormData] = useState(initialState);
+  const { addInput } = useContext(StrengthProgressContext);
+
+  const createInput = () => {
+    const input = {...formData, weight: Number(formData.weight), id: uuidv4()};
+    addInput(input);
+    setFormData(initialState);
+  };
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -22,7 +36,7 @@ const Form = () => {
       <Grid item xs={6}>
         <FormControl fullWidth>
           <InputLabel>Category</InputLabel>
-          <Select>
+          <Select value={formData.category} onChange={(event) => setFormData({...formData, category: event.target.value})}>
             <MenuItem value="Current">Current</MenuItem>
             <MenuItem value="Start">Start</MenuItem>
           </Select>
@@ -31,7 +45,7 @@ const Form = () => {
       <Grid item xs={6}>
         <FormControl fullWidth>
           <InputLabel>Exercise</InputLabel>
-          <Select>
+          <Select value={formData.exercise} onChange={(event) => setFormData({...formData, exercise: event.target.value})}>
             <MenuItem value="Bench">Bench</MenuItem>
             <MenuItem value="Squat">Squat</MenuItem>
             <MenuItem value="Deadlift">Deadlift</MenuItem>
@@ -39,17 +53,17 @@ const Form = () => {
         </FormControl>
       </Grid>
       <Grid item xs={6}>
-        <TextField type="number" label="Weight" fullWidth />
+        <TextField type="number" label="Weight" fullWidth value={formData.weight} onChange={(event) => setFormData({...formData, weight: event.target.value})} />
       </Grid>
       <Grid item xs={6}>
-        <TextField type="date" label="Date" fullWidth />
+        <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(event) => setFormData({...formData, date: event.target.value})}/>
       </Grid>
       <Button
         className={classes.button}
         variant="outlined"
         color="primary"
-        fullWidth>
-          Create
+        fullWidth
+        onClick={createInput}>Create
       </Button>
     </Grid>
   );
