@@ -1,27 +1,23 @@
-import React, { useReducer, createContext } from 'react'
-import contextReducer from './contextReducer'
+import React, { useReducer, createContext } from 'react';
+import contextReducer from './contextReducer';
 
 const initialState = [];
+export const StrengthProgressContext = createContext(initialState);
 
-export const StrengthProgressContext = createContext(initialState)
-
-export const Provider = ({children}) => {
-  const [inputs, dispatch] = useReducer(contextReducer, initialState)
-
-  const removeInput = (id) => {
-    dispatch({
-      type: 'REMOVE_INPUT',
-      payload: id
-    })
-  }
-
+export const Provider = ({ children }) => {
+  const [inputs, dispatch] = useReducer(contextReducer, initialState);
   const addInput = (input) => {
     dispatch({
       type: 'ADD_INPUT',
       padyload: input
     })
-  }
-
+  };
+  const removeInput = (id) => {
+    dispatch({
+      type: 'REMOVE_INPUT',
+      payload: id
+    })
+  };
   return (
     <StrengthProgressContext.Provider value={{
       removeInput,
@@ -29,5 +25,5 @@ export const Provider = ({children}) => {
     }}>
       {children}
     </StrengthProgressContext.Provider>
-  )
-}
+  );
+};

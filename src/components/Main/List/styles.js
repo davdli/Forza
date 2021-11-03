@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles'
-import { red, green } from '@material-ui/core/colors'
+import { makeStyles } from '@material-ui/core/styles';
+import { red, green } from '@material-ui/core/colors';
 
 export default makeStyles((theme) => ({
   avatarCurrent: {
@@ -14,4 +14,4 @@ export default makeStyles((theme) => ({
     maxHeight: '150px',
     overflow: 'auto',
   },
-}))
+}));

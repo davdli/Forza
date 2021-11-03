@@ -1,11 +1,11 @@
-import React from 'react'
-import { Card, CardHeader, CardContent, Typography, Grid, Divider} from '@material-ui/core'
-import useStyles from './styles'
-import Form from './Form/Form'
-import List from './List/List'
+import React from 'react';
+import { Card, CardHeader, CardContent, Typography, Grid, Divider} from '@material-ui/core';
+import useStyles from './styles';
+import Form from './Form/Form';
+import List from './List/List';
 
 const Main = () => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Card classname={classes.root}>
       <CardHeader title="Strength Progress" />
@@ -26,7 +26,7 @@ const Main = () => {
         </Grid>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
