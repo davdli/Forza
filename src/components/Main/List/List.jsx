@@ -19,7 +19,7 @@ const List = () => {
             </ListItemAvatar>
             <ListItemText primary={input.exercise} secondary={`${input.weight} lb - ${input.date}`} />
             <ListItemSecondaryAction>
-              <IconButton edge="end" aria-label="delete" onClick="">
+              <IconButton edge="end" aria-label="delete" onClick={() => removeInput(input.id)}>
                 <Delete />
               </IconButton>
             </ListItemSecondaryAction>
