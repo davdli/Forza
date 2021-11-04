@@ -21,7 +21,7 @@ const useInputs = (title) => {
   resetCategories();
   const { inputs } = useContext(StrengthProgressContext);
   const inputsCategory = inputs.filter((input) => input.category === title); // array only keep inputs for certain category
-  let total = inputsCategory.reduce((accum, val) => accum += val.weight, 0); // sum of weights of all input left
+  // let total = inputsCategory.reduce((accum, val) => accum += val.weight, 0); // sum of weights of all input left
   const categories = title === 'Current' ? currentCategories : startCategories; // categories with weight set to 0 for exercises
 
   const bench = inputsCategory.filter((input) => input.exercise === 'Bench');
@@ -33,10 +33,18 @@ const useInputs = (title) => {
   const dip = inputsCategory.filter((input) => input.exercise === 'Dip');
   const pullup = inputsCategory.filter((input) => input.exercise === 'Pull-up');
 
+  let total = 0;
+  const all = [bench, squat, deadlift, shoulderPress, hipThrust, pendlayRow, dip, pullup];
+  for (let i = 0; i < all.length; i++) {
+    if (all[i][0]) {
+      total += all[i][0].weight;
+    }
+  }
+
   inputsCategory.forEach((input) => {
     const exercise = categories.find((exercise) => exercise.type === input.exercise); // for each input, need to find exercise it belongs to
 
-    // in categories, find type that matches input exercises, and increment by input weight amount
+    // if exercise matches input, find most recent input in that exercises's category
     if (exercise && input.exercise === 'Bench') {
       exercise.weight = bench[0].weight;
     }
