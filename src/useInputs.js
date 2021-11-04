@@ -21,17 +21,46 @@ const useInputs = (title) => {
   resetCategories();
   const { inputs } = useContext(StrengthProgressContext);
   const inputsCategory = inputs.filter((input) => input.category === title); // array only keep inputs for certain category
-  const total = inputsCategory.reduce((accum, val) => accum += val.weight, 0); // sum of weights of all input left
+  let total = inputsCategory.reduce((accum, val) => accum += val.weight, 0); // sum of weights of all input left
   const categories = title === 'Current' ? currentCategories : startCategories; // categories with weight set to 0 for exercises
 
-  console.log({inputsCategory, total, categories});
+  const bench = inputsCategory.filter((input) => input.exercise === 'Bench');
+  const squat = inputsCategory.filter((input) => input.exercise === 'Squat');
+  const deadlift = inputsCategory.filter((input) => input.exercise === 'Deadlift');
+  const shoulderPress = inputsCategory.filter((input) => input.exercise === 'Shoulder Press');
+  const hipThrust = inputsCategory.filter((input) => input.exercise === 'Hip Thrust');
+  const pendlayRow = inputsCategory.filter((input) => input.exercise === 'Pendlay Row');
+  const dip = inputsCategory.filter((input) => input.exercise === 'Dip');
+  const pullup = inputsCategory.filter((input) => input.exercise === 'Pull-up');
 
   inputsCategory.forEach((input) => {
     const exercise = categories.find((exercise) => exercise.type === input.exercise); // for each input, need to find exercise it belongs to
 
-    // loop through all inputs in category
     // in categories, find type that matches input exercises, and increment by input weight amount
-    if (exercise) exercise.weight += input.weight;
+    if (exercise && input.exercise === 'Bench') {
+      exercise.weight = bench[0].weight;
+    }
+    if (exercise && input.exercise === 'Squat') {
+      exercise.weight = squat[0].weight;
+    }
+    if (exercise && input.exercise === 'Deadlift') {
+      exercise.weight = deadlift[0].weight;
+    }
+    if (exercise && input.exercise === 'Shoulder Press') {
+      exercise.weight = shoulderPress[0].weight;
+    }
+    if (exercise && input.exercise === 'Hip Thrust') {
+      exercise.weight = hipThrust[0].weight;
+    }
+    if (exercise && input.exercise === 'Pendlay Row') {
+      exercise.weight = pendlayRow[0].weight;
+    }
+    if (exercise && input.exercise === 'Dip') {
+      exercise.weight = dip[0].weight;
+    }
+    if (exercise && input.exercise === 'Pull-up') {
+      exercise.weight = pullup[0].weight;
+    }
   });
 
   const filteredExercises = categories.filter((exercise) => exercise.weight > 0);
@@ -48,3 +77,6 @@ const useInputs = (title) => {
 };
 
 export default useInputs;
+
+
+

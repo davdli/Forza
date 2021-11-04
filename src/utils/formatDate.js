@@ -3,11 +3,11 @@
 const formatDate = (date) => {
   const d = new Date(date);
   let month = `${d.getMonth() + 1}`;
-  let day = `${d.getDate()}`;
+  let day = `${d.getDate() + 1}`;
   const year = d.getFullYear();
 
   if (month.length < 2) {
-    month = `0${month}`
+    month = `0${month}`;
   }
 
   if (day.length < 2) {
