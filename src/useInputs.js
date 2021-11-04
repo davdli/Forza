@@ -5,23 +5,10 @@ import { useContext } from "react";
 import { StrengthProgressContext } from "./context/context";
 import { currentCategories, startCategories, resetCategories } from "./constants/categories";
 
-// [
-//   { id: 1, category: 'Current', weight: 50, exercise: 'Bench'},
-//   { id: 1, category: 'Current', weight: 50, exercise: 'Bench'},
-//   { id: 1, category: 'Current', weight: 50, exercise: 'Squat'},
-// ]
-
-// export const currentCategories = [
-//   {type: 'Squat', weight: 0, color: currentColors[0]},
-//   {type: 'Deadlift', weight: 0, color: currentColors[1]},
-//   {type: 'Hip Thrust', weight: 0, color: currentColors[2]},
-// ];
-
 const useInputs = (title) => {
   resetCategories();
   const { inputs } = useContext(StrengthProgressContext);
   const inputsCategory = inputs.filter((input) => input.category === title); // array only keep inputs for certain category
-  // let total = inputsCategory.reduce((accum, val) => accum += val.weight, 0); // sum of weights of all input left
   const categories = title === 'Current' ? currentCategories : startCategories; // categories with weight set to 0 for exercises
 
   const bench = inputsCategory.filter((input) => input.exercise === 'Bench');
@@ -33,12 +20,11 @@ const useInputs = (title) => {
   const dip = inputsCategory.filter((input) => input.exercise === 'Dip');
   const pullup = inputsCategory.filter((input) => input.exercise === 'Pull-up');
 
+  // total of most recent weights of inputed exercises
   let total = 0;
   const all = [bench, squat, deadlift, shoulderPress, hipThrust, pendlayRow, dip, pullup];
   for (let i = 0; i < all.length; i++) {
-    if (all[i][0]) {
-      total += all[i][0].weight;
-    }
+    if (all[i][0]) total += all[i][0].weight;
   }
 
   inputsCategory.forEach((input) => {

@@ -1,5 +1,5 @@
-const currentColors = ['#123123', '#154731', '#165f40', '#16784f', '#14915f', '#10ac6e', '#0bc77e', '#04e38d'];
-const startColors = ['#b50d12', '#bf2f1f', '#c9452c', '#d3583a', '#dc6a48', '#e57c58', '#ee8d68', '#f79d79'];
+const currentColors = ['#04e38d', '#0bc77e', '#10ac6e', '#14915f', '#16784f', '#165f40', '#154731', '#123123'];
+const startColors = ['#f79d79', '#ee8d68', '#e57c58', '#dc6a48', '#d3583a', '#c9452c', '#bf2f1f', '#b50d12'];
 
 export const currentCategories = [
   {type: 'Bench', weight: 0, color: currentColors[0]},
