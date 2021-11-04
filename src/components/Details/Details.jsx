@@ -9,7 +9,7 @@ const Details = ({title}) => {
   const { total, chartData } = useInputs(title)
 
   return (
-    <Card className={title === 'Current' ? classes.current : classes.start}>
+    <Card className={title === 'Current' ? classes.current : classes.start} style={{borderRadius: '2rem', boxShadow: '0.5rem 0.5rem 1rem #cfcfcf'}}>
       <CardHeader title={title} />
       <CardContent>
         <Typography variant="h5">{total} lb</Typography>
