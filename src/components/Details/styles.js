@@ -2,9 +2,9 @@ import { makeStyles } from '@material-ui/core';
 
 export default makeStyles(() => ({
   current: {
-    borderBottom: '5px solid #10ac6e',
+    borderBottom: '5px solid #3cb371',
   },
   start: {
-    borderBottom: '5px solid #e57c58',
+    borderBottom: '5px solid #6495ed',
   }
 }));
