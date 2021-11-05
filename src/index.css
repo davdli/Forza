@@ -4,11 +4,12 @@
 }
 
 body {
-  background-color: #f4f4f4;
+  background-color: #26272b;
 }
 
 nav {
-  background-color: white;
+  color: #f4f4f4;
+  background-color: #26272b;
   width: 80%;
   height: 5rem;
   margin-left: 8.5rem;
@@ -16,7 +17,7 @@ nav {
   display: inline-block;
   text-align: center;
   backdrop-filter: saturate(180%) blur(2rem);
-  box-shadow: 0 0 2rem rgba(1,0,31,0.1);
+  box-shadow: 0 0 2rem rgba(0,0,0,0.2)
 }
 
 nav p {

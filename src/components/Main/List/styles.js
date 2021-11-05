@@ -1,14 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { red, green } from '@material-ui/core/colors';
 
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
   avatarCurrent: {
-    color: '#fff',
-    backgroundColor: green[500],
+    color: '#f4f4f4',
+    backgroundColor: '#10ac6e',
   },
   avatarStart: {
-    color: theme.palette.getContrastText(red[500]),
-    backgroundColor: red[500],
+    color: '#f4f4f4',
+    backgroundColor: '#e57c58',
   },
   list: {
     maxHeight: '150px',

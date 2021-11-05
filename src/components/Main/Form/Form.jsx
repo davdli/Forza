@@ -60,13 +60,7 @@ const Form = () => {
       <Grid item xs={6}>
         <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(event) => setFormData({...formData, date: formatDate(event.target.value)})}/>
       </Grid>
-      <Button
-        className={classes.button}
-        variant="outlined"
-        color="primary"
-        fullWidth
-        onClick={createInput}>Create
-      </Button>
+      <Button className={classes.button} fullWidth onClick={createInput} style={{color: "#f4f4f4", backgroundColor: 'rgba(38,39,43,0.8)', borderRadius: '6rem', boxShadow: '0 0 2rem rgba(0,0,0,0.4)'}}>Create</Button>
     </Grid>
   );
 };

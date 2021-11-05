@@ -7,7 +7,7 @@ import List from './List/List';
 const Main = () => {
   const classes = useStyles();
   return (
-    <Card classname={classes.root} style={{borderRadius: '2rem', boxShadow: '0.5rem 0.5rem 1rem #cfcfcf'}}>
+    <Card classname={classes.root} style={{backgroundColor: '#f4f4f4', borderRadius: '2rem', boxShadow: '0.5rem 0.5rem 1rem #18191b'}}>
       <CardHeader title="Strength Progress" />
       <CardContent>
         <Typography align="center" variant="h5">Total Gain: 100 lb</Typography>
