@@ -42,7 +42,7 @@ const Form = () => {
         return setFormData(initialState)
       }
 
-      segment.entities.forEach((entity) => {
+      segment.entities.forEach((entity) => { // reading our entity name in speechly config
         const exercise = `${entity.value.charAt(0)}${entity.value.slice(1).toLowerCase()}`
         switch (entity.type) {
           case 'weight':
