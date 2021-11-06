@@ -33,8 +33,31 @@ const Form = () => {
   useEffect(() => {
     if (segment) {
       if (segment.intent.intent === 'add_start') { // reading our intents in speechly config
-        setFormData({...formData, category: 'Start'}) // changing category to Start
+        setFormData({...formData, category: 'Start'}); // changing category to Start
+      } else if (segment.intent.intent === 'add_current') {
+        setFormData({...formData, category: 'Current'});
+      } else if (segment.isFinal && segment.intent.intent === 'create_input') {
+        return createInput();
+      } else if (segment.isFinal && segment.intent.intent === 'cancel_input') {
+        return setFormData(initialState)
       }
+
+      segment.entities.forEach((entity) => {
+        const exercise = `${entity.value.charAt(0)}${entity.value.slice(1).toLowerCase()}`
+        switch (entity.type) {
+          case 'weight':
+            setFormData({...formData, weight: entity.value});
+            break;
+          case 'exercise':
+            setFormData({...formData, exercise: exercise});
+            break;
+          case 'date':
+            setFormData({...formData, date: entity.value});
+            break;
+          default:
+            break;
+        }
+      })
     }
   }, [segment]); // where we look for changes
 
