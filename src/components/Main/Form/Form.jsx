@@ -2,7 +2,7 @@
 // accepting those to our component
 // calling those action creators to fire up context reducer
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react'; // useEffect => call specific function at certian points in component
 import { TextField, Typography, Grid, Button, FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import useStyles from './styles';
 import { StrengthProgressContext } from '../../../context/context';
@@ -30,17 +30,21 @@ const Form = () => {
     setFormData(initialState);
   };
 
+  useEffect(() => {
+    if (segment) {
+      if (segment.intent.intent === 'add_start') { // reading our intents in speechly config
+        setFormData({...formData, category: 'Start'}) // changing category to Start
+      }
+    }
+  }, [segment]); // where we look for changes
+
   const selectedExercises = formData.category === 'Current' ? currentCategories : startCategories;
 
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography align="center" variant="subtitle2" gutterBottom>
-          {segment ? (
-            <>
-              {segment.words.map(word => word.value).join(" ")}
-            </>
-          ) : null}
+          {segment && segment.words.map(word => word.value).join(" ")}
         </Typography>
       </Grid>
       <Grid item xs={6}>
