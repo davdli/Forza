@@ -25,6 +25,7 @@ const Form = () => {
   const { segment } = useSpeechContext();
 
   const createInput = () => {
+    if (Number.isNaN(Number(formData.weight)) || !formData.date.includes('-')) return;
     const input = {...formData, weight: Number(formData.weight), id: uuidv4()};
     addInput(input);
     setFormData(initialState);

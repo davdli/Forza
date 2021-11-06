@@ -3,11 +3,16 @@
 // adds input to inputs
 
 const contextReducer = (state, action) => {
+  let inputs;
   switch (action.type) {
     case 'ADD_INPUT':
-      return [action.payload, ...state];
+      inputs = [action.payload, ...state];
+      localStorage.setItem('inputs', JSON.stringify(inputs)); //store inputs in local storage
+      return inputs;
     case 'REMOVE_INPUT':
-      return state.filter((input) => input.id !== action.payload);
+      inputs = state.filter((input) => input.id !== action.payload);
+      localStorage.setItem('inputs', JSON.stringify(inputs));
+      return inputs;
     default:
       return state;
   };

@@ -4,7 +4,7 @@
 import React, { useReducer, createContext } from 'react';
 import contextReducer from './contextReducer';
 
-const initialState = [];
+const initialState = JSON.parse(localStorage.getItem('inputs')) || []; //pull inputs immedicately from local storage
 export const StrengthProgressContext = createContext(initialState);
 
 export const Provider = ({ children }) => {
