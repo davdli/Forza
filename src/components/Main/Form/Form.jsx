@@ -58,6 +58,10 @@ const Form = () => {
             break;
         }
       })
+
+      if (segment.isFinal && formData.weight && formData.exercise && formData.category && formData.date) { // automatically creates input if all categories are filled
+        createInput();
+      }
     }
   }, [segment]); // where we look for changes
 
