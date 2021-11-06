@@ -9,6 +9,7 @@ import { StrengthProgressContext } from '../../../context/context';
 import { v4 as uuidv4 } from 'uuid';
 import { currentCategories, startCategories } from '../../../constants/categories';
 import formatDate from '../../../utils/formatDate';
+import { useSpeechContext } from '@speechly/react-client';
 
 const initialState = {
   category: '',
@@ -21,6 +22,7 @@ const Form = () => {
   const classes = useStyles();
   const [formData, setFormData] = useState(initialState);
   const { addInput } = useContext(StrengthProgressContext);
+  const { segment } = useSpeechContext();
 
   const createInput = () => {
     const input = {...formData, weight: Number(formData.weight), id: uuidv4()};
@@ -34,7 +36,11 @@ const Form = () => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography align="center" variant="subtitle2" gutterBottom>
-          ...
+          {segment ? (
+            <>
+              {segment.words.map(word => word.value).join(" ")}
+            </>
+          ) : null}
         </Typography>
       </Grid>
       <Grid item xs={6}>

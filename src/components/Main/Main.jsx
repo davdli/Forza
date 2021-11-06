@@ -13,7 +13,7 @@ const Main = () => {
         <Typography align="center" variant="h5">Total Gain: 100 lb</Typography>
         <Typography variant="subtitle1" style={{lineHeight: '1.5em', marginTop: '20px'}} >
           {/* InfoCard... */}
-          {/* Hey Forza: Add 225 for Bench on Monday to Current... */}
+          Hey Forza: Add 225 for Bench on Monday to Current...
         </Typography>
         <Divider />
         <Form />
