@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { currentCategories, startCategories } from '../../../constants/categories';
 import formatDate from '../../../utils/formatDate';
 import { useSpeechContext } from '@speechly/react-client';
+import SnackbarComp from '../../Snackbar/Snackbar';
 
 const initialState = {
   category: '',
@@ -23,10 +24,12 @@ const Form = () => {
   const [formData, setFormData] = useState(initialState);
   const { addInput } = useContext(StrengthProgressContext);
   const { segment } = useSpeechContext();
+  const [open, setOpen] = useState(false);
 
   const createInput = () => {
     if (Number.isNaN(Number(formData.weight)) || !formData.date.includes('-')) return;
     const input = {...formData, weight: Number(formData.weight), id: uuidv4()};
+    setOpen(true);
     addInput(input);
     setFormData(initialState);
   };
@@ -70,6 +73,7 @@ const Form = () => {
 
   return (
     <Grid container spacing={2}>
+      <SnackbarComp open={open} setOpen={setOpen}/>
       <Grid item xs={12}>
         <Typography align="center" variant="subtitle2" gutterBottom>
           {segment && segment.words.map(word => word.value).join(" ")}
