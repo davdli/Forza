@@ -10,9 +10,9 @@ const Details = ({title}) => {
 
   return (
     <Card className={title === 'Current' ? classes.current : classes.start} style={{borderRadius: '2rem', boxShadow: '0.5rem 0.5rem 1rem #18191b'}}>
-      <CardHeader title={title} />
+      <CardHeader title={title} style={{textAlign: 'center'}}/>
       <CardContent>
-        <Typography variant="h5">{total} lb</Typography>
+        <Typography variant="h5" style={{textAlign: 'center'}}>{total} lb</Typography>
         <Doughnut data={chartData} />
       </CardContent>
     </Card>

@@ -19,7 +19,7 @@ const SnackbarComp = ({open, setOpen}) => { //provide notification
         autoHideDuration={5000}
         onClose={handleClose}
       >
-        <MuiAlert onClose={handleClose} severity='success' elevation={6} variant='filled' style={{fontColor: 'black', borderRadius: '6rem'}}>
+        <MuiAlert onClose={handleClose} severity='success' elevation={6} variant='filled' style={{borderRadius: '6rem', background: '#48e471', color: '#26272b', boxShadow: '0 0 1rem rgba(137,226,161,0.8)'}}>
           CREATED
         </MuiAlert>
       </Snackbar>

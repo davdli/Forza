@@ -3,7 +3,7 @@ import React from 'react';
 const Nav = () => {
   return (
     <nav>
-      <p>Forzo</p>
+      <p>Forza</p>
     </nav>
   )
 }
