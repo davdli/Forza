@@ -1,6 +1,10 @@
 # Forza
 Forza is a mobile/web application that allows users to track their progress at the gym using speech recognition
 
+## Preview
+<img width='75%' src="public/ForzaDemo1.gif">
+<img width='25%' src="public/ForzaDemo2.gif">
+
 ## Tech Stack
 - ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?logo=html5&logoColor=white&style=flat)
 - ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?logo=css3&logoColor=white&style=flat)
