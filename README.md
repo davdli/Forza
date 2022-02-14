@@ -1,5 +1,5 @@
 # Forza
-Forza is a mobile/web application that allows users to track their strength progress at the gym using speech recognition
+Forza is a web application helping people track their strength progression at the gym with speech recognition.
 
 ## Preview
 <img width='75%' src="public/ForzaDemo1.gif">
